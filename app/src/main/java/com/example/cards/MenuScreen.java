@@ -255,11 +255,12 @@ public class MenuScreen extends AppCompatActivity {
         animatorYback.setDuration(1000);
 //        animatorYback.setStartDelay(delay);
 
-        ObjectAnimator spinback = ObjectAnimator.ofFloat(back, "rotationY", 360f, 0f);
+        ObjectAnimator spinback = ObjectAnimator.ofFloat(back, "rotationY", 0f, 180f);
         spinback.setStartDelay(1000);
-        spinback.setDuration(1000);
+        spinback.setDuration(300);
         ObjectAnimator alphaback2 = ObjectAnimator.ofFloat(back, "alpha", 1f, 0f);
-        alphaback2.setStartDelay(1250);
+        alphaback2.setStartDelay(1150);
+        alphaback2.setDuration(1);
 
         ObjectAnimator animatorXcard = ObjectAnimator.ofFloat(selectedCard, "translationX", 0f, initialPositionX);
         ObjectAnimator animatorYcard = ObjectAnimator.ofFloat(selectedCard, "translationY", 0f, initialPositionY);
@@ -267,11 +268,12 @@ public class MenuScreen extends AppCompatActivity {
         animatorYcard.setDuration(1000);
        /* animatorXcard.setStartDelay(delay);
         animatorYcard.setStartDelay(delay);*/
-        ObjectAnimator spincard = ObjectAnimator.ofFloat(selectedCard, "rotationY", 180f, 0f);
+        ObjectAnimator spincard = ObjectAnimator.ofFloat(selectedCard, "rotationY", 180f, 360f);
         spincard.setStartDelay(1000);
-        spinback.setDuration(500);
+        spinback.setDuration(300);
         ObjectAnimator alphacard = ObjectAnimator.ofFloat(selectedCard, "alpha", 0f, 1f);
-        alphacard.setStartDelay(1250);
+        alphacard.setStartDelay(1150);
+        alphacard.setDuration(1);
 
         AnimatorSet animatorSet = new AnimatorSet();
 
@@ -304,22 +306,26 @@ public class MenuScreen extends AppCompatActivity {
 
         animatorYback = ObjectAnimator.ofFloat(back, "translationY", 0f, initialPositionY);
         animatorYback.setDuration(1000);
+        //300 1150 1
 
-        ObjectAnimator spinback = ObjectAnimator.ofFloat(back, "rotationY", 360f, 0f);
+        ObjectAnimator spinback = ObjectAnimator.ofFloat(back, "rotationY", 0f, 180f);
         spinback.setStartDelay(1000);
-        spinback.setDuration(1000);
+        spinback.setDuration(300);
         ObjectAnimator alphaback2 = ObjectAnimator.ofFloat(back, "alpha", 1f, 0f);
-        alphaback2.setStartDelay(1250);
+        alphaback2.setStartDelay(1150);
+        alphaback2.setDuration(1);
 
         ObjectAnimator animatorXcard = ObjectAnimator.ofFloat(selectedCard, "translationX", 0f, initialPositionX);
         ObjectAnimator animatorYcard = ObjectAnimator.ofFloat(selectedCard, "translationY", 0f, initialPositionY);
         animatorXcard.setDuration(1000);
         animatorYcard.setDuration(1000);
-        ObjectAnimator spincard = ObjectAnimator.ofFloat(selectedCard, "rotationY", 180f, 0f);
+        ObjectAnimator spincard = ObjectAnimator.ofFloat(selectedCard, "rotationY", 180f, 360f);
         spincard.setStartDelay(1000);
-        spinback.setDuration(500);
+        spinback.setDuration(300);
         ObjectAnimator alphacard = ObjectAnimator.ofFloat(selectedCard, "alpha", 0f, 1f);
-        alphacard.setStartDelay(1250);
+        alphacard.setStartDelay(1150);
+        alphacard.setDuration(1);
+
 
         AnimatorSet animatorSet = new AnimatorSet();
         animatorSet.setStartDelay(1000);
