@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Cards">
         <activity
+            android:name=".Multiplayer"
+            android:exported="true" />
+        <activity
             android:name=".MenuScreen"
             android:exported="true" />
         <activity

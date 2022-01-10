@@ -28,7 +28,7 @@ public class MenuScreen extends AppCompatActivity {
     private TextView bankMatch;
     private TextView youMatch;
     private int initialPositionX = -350;
-    private int initialPositionY = 600;
+    private int initialPositionY = 630;
     private int currentCard = 0;
     private ImageView back;
     List<Integer> cardValue = new ArrayList<>();
@@ -110,16 +110,16 @@ public class MenuScreen extends AppCompatActivity {
                     matchResult.setText(String.valueOf("You have Lost"));
                     bank_alfa = ObjectAnimator.ofFloat(matchResult, "alpha", 0f, 1f);
                     bank_alfa.setStartDelay(1500);
-                    bank_maxX = ObjectAnimator.ofFloat(matchResult, "scaleX", 1f, 2f);
+                    bank_maxX = ObjectAnimator.ofFloat(matchResult, "scaleX", 1f, 1.3f);
                     bank_maxX.setStartDelay(1500);
                     bank_maxX.setDuration(1000);
-                    bank_maxY = ObjectAnimator.ofFloat(matchResult, "scaleY", 1f, 2f);
+                    bank_maxY = ObjectAnimator.ofFloat(matchResult, "scaleY", 1f, 1.3f);
                     bank_maxY.setStartDelay(1500);
                     bank_maxY.setDuration(1000);
-                    bank_minX = ObjectAnimator.ofFloat(matchResult, "scaleX", 2f, 1f);
+                    bank_minX = ObjectAnimator.ofFloat(matchResult, "scaleX", 1.3f, 1f);
                     bank_minX.setStartDelay(2500);
                     bank_minX.setDuration(1000);
-                    bank_minY = ObjectAnimator.ofFloat(matchResult, "scaleY", 2f, 1f);
+                    bank_minY = ObjectAnimator.ofFloat(matchResult, "scaleY", 1.3f, 1f);
                     bank_minY.setStartDelay(2500);
                     bank_minY.setDuration(1000);
 
@@ -159,25 +159,27 @@ public class MenuScreen extends AppCompatActivity {
                 if (bankPoints >= playerPoints && bankPoints <= 7.5) {
                     matchResult.setText(String.valueOf("bank has won"));
                     bankScoreCount++;
-                    bankMatch.setText(String.valueOf(bankScoreCount));
+                    //bankMatch.setText(String.valueOf(bankScoreCount));
+                    textSetter(bankMatch,bankScoreCount,1000+delay);
                 } else {
                     matchResult.setText(String.valueOf("You have won"));
                     playerScoreCount++;
-                    youMatch.setText(String.valueOf(playerScoreCount));
+                    //youMatch.setText(String.valueOf(playerScoreCount));
+                    textSetter(youMatch,playerScoreCount,1000+delay);
                 }
                 ObjectAnimator matchalpha, matchmaxX, matchmaxY, matchminX, matchminY;
                 matchalpha = ObjectAnimator.ofFloat(matchResult, "alpha", 0f, 1f);
                 matchalpha.setStartDelay(1500);
-                matchmaxX = ObjectAnimator.ofFloat(matchResult, "scaleX", 1f, 2f);
+                matchmaxX = ObjectAnimator.ofFloat(matchResult, "scaleX", 1f, 1.3f);
                 matchmaxX.setStartDelay(1500);
                 matchmaxX.setDuration(1000);
-                matchmaxY = ObjectAnimator.ofFloat(matchResult, "scaleY", 1f, 2f);
+                matchmaxY = ObjectAnimator.ofFloat(matchResult, "scaleY", 1f, 1.3f);
                 matchmaxY.setStartDelay(1500);
                 matchmaxY.setDuration(1000);
-                matchminX = ObjectAnimator.ofFloat(matchResult, "scaleX", 2f, 1f);
+                matchminX = ObjectAnimator.ofFloat(matchResult, "scaleX", 1.3f, 1f);
                 matchminX.setStartDelay(2500);
                 matchminX.setDuration(1000);
-                matchminY = ObjectAnimator.ofFloat(matchResult, "scaleY", 2f, 1f);
+                matchminY = ObjectAnimator.ofFloat(matchResult, "scaleY", 1.3f, 1f);
                 matchminY.setStartDelay(2500);
                 matchminY.setDuration(1000);
 
@@ -190,6 +192,14 @@ public class MenuScreen extends AppCompatActivity {
             }
         });
     }
+    public void textSetter(TextView textView, int var , int time){
+        textView.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                textView.setText(String.valueOf(var));
+            }
+        },time);
+    }
 
     public static void reiniciarActivity(Activity actividad) {
         Intent intent = new Intent();
@@ -197,7 +207,7 @@ public class MenuScreen extends AppCompatActivity {
         //llamamos a la actividad
         actividad.startActivity(intent);
         //finalizamos la actividad actual
-       // actividad.finish();
+        actividad.finish();
     }
 
     private void playAgainMethod(int delaytime) {
@@ -266,8 +276,7 @@ public class MenuScreen extends AppCompatActivity {
         ObjectAnimator animatorYcard = ObjectAnimator.ofFloat(selectedCard, "translationY", 0f, initialPositionY);
         animatorXcard.setDuration(1000);
         animatorYcard.setDuration(1000);
-       /* animatorXcard.setStartDelay(delay);
-        animatorYcard.setStartDelay(delay);*/
+
         ObjectAnimator spincard = ObjectAnimator.ofFloat(selectedCard, "rotationY", 180f, 360f);
         spincard.setStartDelay(1000);
         spinback.setDuration(300);
